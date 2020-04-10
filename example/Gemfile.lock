@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    omniauth-facebook (6.0.0)
+    omniauth-instagram (6.0.0)
       omniauth-oauth2 (~> 1.2)
 
 GEM
@@ -54,7 +54,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  omniauth-facebook!
+  omniauth-instagram!
   sinatra
   sinatra-reloader
 

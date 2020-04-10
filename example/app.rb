@@ -11,7 +11,7 @@ set :raise_errors, true
 get '/server-side' do
   # NOTE: You would just hit this endpoint directly from the browser in a real app. The redirect is
   #       just here to explicit declare this server-side flow.
-  redirect '/auth/facebook'
+  redirect '/auth/instagram'
 end
 
 # REQUEST STEP (client-side flow)
@@ -28,7 +28,7 @@ get '/client-side' do
       <script type="text/javascript">
         window.fbAsyncInit = function() {
           FB.init({
-            appId: '#{ENV['FACEBOOK_APP_ID']}',
+            appId: '#{ENV['INSTAGRAM_APP_ID']}',
             version: 'v3.0',
             cookie: true // IMPORTANT must enable cookies to allow the server to access the session
           });
@@ -60,11 +60,11 @@ get '/client-side' do
           FB.login(function(response) {
             console.log(response);
             if (response.authResponse) {
-              $('#connect').html('Connected! Hitting OmniAuth callback (GET /auth/facebook/callback)...');
+              $('#connect').html('Connected! Hitting OmniAuth callback (GET /auth/instagram/callback)...');
 
               // since we have cookies enabled, this request will allow omniauth to parse
               // out the auth code from the signed request in the fbsr_XXX cookie
-              $.getJSON('/auth/facebook/callback', function(json) {
+              $.getJSON('/auth/instagram/callback', function(json) {
                 $('#connect').html('Connected! Callback complete.');
                 $('#results').html(JSON.stringify(json));
               });
